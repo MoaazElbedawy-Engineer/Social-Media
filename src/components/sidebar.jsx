@@ -4,7 +4,7 @@ import { CirclePlus, LogOut } from "lucide-react";
 import { UserButton, useClerk } from "@clerk/react";
 
 const Sidebar = ({sidebarOpen}) => {
-    const navigate = useNavigate()
+    const navigate = useNavigate()  
     const user = dummyUserData
     const {signOut} = useClerk()
 

@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { dummyUserData } from "../assets/assets";
 import { useState } from "react";
 import Loading from "../components/Loading";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/sidebar";
 
 const Layout = () => {
     const user = dummyUserData;
