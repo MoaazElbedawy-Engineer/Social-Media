@@ -2,8 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { assets, dummyUserData } from "../assets/assets";
 import { CirclePlus, LogOut } from "lucide-react";
 import { UserButton, useClerk } from "@clerk/react";
+import MenuItems from "./MenuItems";
 
-const Sidebar = ({sidebarOpen}) => {
+const Sidebar = ({sidebarOpen, setSidebarOpen}) => {
     const navigate = useNavigate()  
     const user = dummyUserData
     const {signOut} = useClerk()
@@ -17,7 +18,7 @@ const Sidebar = ({sidebarOpen}) => {
                 <img src={assets.logo} className="w-26 ml-7 
                 my-2 cursor-pointer" alt="" onClick={()=>navigate("/")} />
                 <hr className="border-gray-300 mb-8" />
-
+                <MenuItems setSidebarOpen = {setSidebarOpen}/>
                 <Link to="/create-post" className="flex items-center justify-center
                  gap-2 py-2.5 mt-6 mx-6 rounded-lg bg-linear-to-r
                  from-indigo-500 to-purple-600 hover:from-indigo-700
@@ -28,14 +29,12 @@ const Sidebar = ({sidebarOpen}) => {
                 </Link>
             </div>
 
-            <div className="w-full border-t border-gray-200 p-4 px-7 items-center justify-between">
+            <div className=" border-t border-gray-200 p-4 px-7 flex items-center justify-between w-full">
                 <UserButton />
                 <div>
                     <h1 className="text-sm font-medium">{user.full_name}</h1>
-                    <p className="text-xs text-gray-500">@{user.username}</p>
-                </div>
+                    <p className="text-xs text-gray-500">@{user.username}</p> 
             </div>
-            <div>
               <LogOut className="w-4.5 text-gray-400 hover:text-gray-700
               transition cursor-pointer" onClick={signOut} />
             </div>

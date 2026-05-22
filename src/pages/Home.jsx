@@ -1,14 +1,37 @@
+import { useEffect, useState } from "react";
+import { dummyPostsData } from "../assets/assets";
+import Loading from "../components/Loading";
+
 const Home = () => {
-  return (
-    <div className="w-full h-full bg-gray-50 p-6">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">Welcome to Your Feed</h1>
-        <div className="bg-white rounded-lg shadow p-6">
-          <p className="text-gray-600">Your feed content will appear here.</p>
+  const [home, setHome] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  const fetchHome = async () => {
+    await Promise.resolve(); 
+    setHome(dummyPostsData);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchHome();
+  }, []);
+
+  return !loading ? (
+    <div className="h-full overflow-y-scroll py-10 xl:pr-5 flex items-center justify-center xl:gap-8">
+      <div>
+        <div className="p-4 space-y-6">list of post</div>
+      </div>
+
+      <div>
+        <div>
+          <h1>Sponsored</h1>
         </div>
+        <h1>Recent messages</h1>
       </div>
     </div>
-  )
-}
+  ) : (
+    <Loading />
+  );
+};
 
-export default Home
+export default Home;
