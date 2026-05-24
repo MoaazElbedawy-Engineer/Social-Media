@@ -29,13 +29,13 @@ const Sidebar = ({sidebarOpen, setSidebarOpen}) => {
                 </Link>
             </div>
 
-            <div className=" border-t border-gray-200 p-4 px-7 flex items-center justify-between w-full">
+            <div className=" border-t border-gray-200 p-4 px-7 flex items-center justify-around w-full">
                 <UserButton />
                 <div>
                     <h1 className="text-sm font-medium">{user.full_name}</h1>
                     <p className="text-xs text-gray-500">@{user.username}</p> 
-            </div>
-              <LogOut className="w-4.5 text-gray-400 hover:text-gray-700
+                </div>
+                <LogOut className="w-4.5 text-gray-400 hover:text-gray-700
               transition cursor-pointer" onClick={signOut} />
             </div>
         </div>

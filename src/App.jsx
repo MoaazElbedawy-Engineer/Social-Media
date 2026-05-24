@@ -10,10 +10,13 @@ import Profile from "./pages/Profile";
 import Layout from "./pages/Layout";
 import { useUser } from "@clerk/react";
 
+import {Toaster} from "react-hot-toast"
+
 function App() {
   const { user } = useUser();
   return (
     <>
+      <Toaster />
       <Routes>
         <Route path="/" element={!user ? <Login /> : <Layout />}>
           <Route index element={<Home />} />
